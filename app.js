@@ -32,3 +32,38 @@ function addTwoNumsV2 (a, b)
 addTwoNumsV2(numOne, numTwo);
 addTwoNumsV2(6, 10);
 addTwoNumsV2("Hello, ", "World!");
+
+function greeting()
+{
+    console.log("HI");
+}
+greeting();
+
+function greetingByName(name)
+{
+    console.log("Hello, " + name + "! Welcome to the site.");
+}
+greetingByName("Caleb");
+
+function greetingByExcitement(name)
+{
+    let upperCaseName = name.toUpperCase();
+    console.log(upperCaseName);
+
+    //return statement returns the output of the function
+    return upperCaseName;
+}
+
+//assigns the return outcome of the function to a variable to be used within this scope
+let screamingName = greetingByExcitement("zach");
+console.log(`YOOOOOOO ${screamingName}! IT'S NORTHERN LIGHT SUPLEX'S SINGER!!`);
+
+function sandwichMaker(typeOfBread = "N/A", typeOfMeat = "N/A", typeOfSauce = "N/A", typeOfVeggie = "N/A")
+{
+    console.log(
+        `Bread: ${typeOfBread} Meat: ${typeOfMeat} Sauce: ${typeOfSauce} Veggies: ${typeOfVeggie}`
+    );
+}
+
+let zachSandwich = sandwichMaker("white", "ham", "mayo", "lettuce");
+let margaritoSandwich = sandwichMaker("white", "rostisserie chicken", "buffalo");
