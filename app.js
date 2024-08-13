@@ -1,3 +1,5 @@
+/*
+
 //function schema
 //making functions saves blocks of code to be ran when we need it.
 //INSTEAD of immediately running as the page loads
@@ -68,7 +70,7 @@ function sandwichMaker(typeOfBread = "N/A", typeOfMeat = "N/A", typeOfSauce = "N
 let zachSandwich = sandwichMaker("white", "ham", "mayo", "lettuce");
 let margaritoSandwich = sandwichMaker("white", "rostisserie chicken", "buffalo");
 
-console.clear();
+*/
 
 /*
 
@@ -206,6 +208,7 @@ function checkBalance(balance)
 */
 
 /*
+
 //! Simple To-Do List
 //? Create a program that allows the user to add and display tasks in a to-do list.
  
@@ -219,12 +222,11 @@ function checkBalance(balance)
 //Declare Variables
 let taskList = [];
 let userInput;
-let taskCount = 1;
 
-//executes while the user does not input tilde at the menu screen
+//executes while the user does not input 3 at the menu screen
 do
 {
-    userInput = prompt("1. Add Task \n2.Remove Task \n` to exit.");
+    userInput = prompt("1. Add Task \n2. Remove Task \n3. Exit.");
 
     switch(true)
     {
@@ -236,14 +238,14 @@ do
         case (userInput == 2):
             removeTask(taskList);
             break;
-        case (userInput == "`"):
+        case (userInput == "3"):
             break;
         default:
             console.log("Enter a valid response.");
             break;
     }
 
-} while (userInput != "`");
+} while (userInput != "3");
 
 //adds a task to the task list array
 function addTask(taskList)
@@ -252,10 +254,7 @@ function addTask(taskList)
     userInput = prompt(`Enter the task you would like to add: `);
 
     //pushes the task to the end of the task list array
-    taskList.push(`${taskCount}. ${userInput}`);
-
-    //increments taskCount by 1 for each new task made
-    taskCount++;
+    taskList.push(`${userInput}`);
 
     //shows the updated task list array
     console.log(`To-do List: ${taskList}`);
@@ -268,7 +267,7 @@ function removeTask(taskList)
     userInput = prompt(`Enter the task that you would like to remove: `);
 
     //checks to make sure the user input is within the range of the current tasks in the array
-    if (userInput <= taskList.length && userInput >= 1)
+    if (userInput >= 1 && userInput <= taskList.length)
     {
         //removes the task at the given user input number
         taskList.splice(Number(userInput) - 1, 1);
@@ -279,6 +278,8 @@ function removeTask(taskList)
 }
 
 */
+
+/*
 
 //! Temperature Converter
 //? Create a program that converts temperatures between Celsius, Fahrenheit, and Kelvin.
@@ -365,4 +366,169 @@ function fahrenheitToCelsius(fahrenheit)
 
     convertedTemp = (fahrenheit - 32) * 5/9;
     console.log(`Fahrenheit to Celsius: ${convertedTemp.toFixed(2)}`);
+}
+
+*/
+
+/*
+
+//! Music Playlist Manager
+//? Create a program that allows the user to manage a playlist of songs.
+ 
+//TODO Define an Array: Define an array to store the song titles.
+//TODO Create Functions: Create functions to add a song, remove a song, and display the playlist.
+//TODO Use if-else Statements and Loops: Use if-else statements and loops within the functions to handle the operations.
+//* Output Results: Use console.log to display the playlist after each operation.
+
+//declare variables
+let songTitles = [];
+let userInput;
+
+//executes while the user does not input 4 at the main menu screen
+do
+{
+    //outputs the main menu layout for the program
+    userInput = prompt("1. Add Song \n2. Remove Song \n3. Display Playlist. \n4. Exit");
+
+    //calls specific program functions based on the user's input
+    switch(true)
+    {
+        //adds a song
+        case (userInput == 1):
+            addSong(songTitles);
+            break;
+        //removes a song
+        case (userInput == 2):
+            removeSong(songTitles);
+            break;
+        //displays the song playlist
+        case (userInput == "3"):
+            displayPlaylist(songTitles);
+            break;
+        //breaks out of the switch case
+        case (userInput == "4"):
+            break;
+        //executes when the user does not input a valid response
+        default:
+            console.log("Enter a valid response.");
+            break;
+    }
+
+} while (userInput != "4");
+
+//adds a song title to the songTitles array
+function addSong(songTitles)
+{
+    //prompts the user to input the title of a song
+    userInput = prompt("Please enter the title of the song you would like to add to your playlist.");
+
+    //pushes the task to the end of the song titles array
+    songTitles.push(userInput);
+
+    //shows the updated song titles array
+    console.log(`Song Playlist: ${songTitles}`);
+}
+
+//removes a desired song title from the songTitles array based on the track number given by the user
+function removeSong(songTitles)
+{
+    //prompts the user to input which number song title they would like to remove
+    userInput = prompt("Enter the track number of the song you would like to remove from the playlist.");
+
+    //checks to make sure the user input is within the range of the current song titles in the array
+    if (userInput >= 1 && userInput <= songTitles.length)
+    {
+        //removes the song title at the given user input number
+        songTitles.splice(Number(userInput) - 1, 1);
+    }
+
+    //outputs the updated song titles array
+    console.log(`Song Playlist: ${songTitles}`);
+}
+
+//displays the contents of the songTitles array
+function displayPlaylist(songTitles)
+{
+    console.log(`Song Playlist: ${songTitles}`);
+}
+
+*/
+
+//! Daily Temperatures
+//? Create a program that processes daily temperature readings, calculates the average temperature, and identifies the highest and lowest temperatures.
+ 
+//TODO Predefine an Array of Temperatures: Start with an array of numbers representing daily temperatures.
+//TODO Calculate the Average Temperature: Write a function to calculate the average of the temperatures.
+//TODO Find the Highest Temperature: Write a function to find the highest temperature in the array.
+//TODO Find the Lowest Temperature: Write a function to find the lowest temperature in the array.
+
+//declare array values
+let temperatures = [72, 75, 79, 83, 78, 85, 90];
+
+//calls the functions
+temperatureAverage(temperatures);
+highestTemperature(temperatures);
+lowestTemperature(temperatures);
+
+//finds the average temperature of all the temperature values in the array
+function temperatureAverage(temperatures)
+{
+    //declare variables
+    let sum = 0;
+    let average;
+
+    //repeats for every index of the temperatures array
+    for (let i = 0; i < temperatures.length; i++)
+    {
+        //adds the temperature value at the current index to an overall sum
+        sum += temperatures[i];
+    }
+
+    //calculates the average of all the temperatures
+    average = sum / temperatures.length;
+
+    //outputs the results to the console
+    console.log(`Average Temperature: ${average.toFixed(2)}`);
+}
+
+//finds the highest temperature of all the temperature values in the array
+function highestTemperature(temperatures)
+{
+    //declare variable
+    let max = temperatures[0];
+
+    //repeats for every index of the temperatures array
+    for (let i = 0; i < temperatures.length; i++)
+    {
+        //checks if the temperature at the current index is greater than value stored in max 
+        if (temperatures[i] > max)
+        {
+            //sets max to the temperature value at the current index of the array if true
+            max = temperatures[i];
+        }
+    }
+
+    //outputs the results to the console
+    console.log(`Max Temperature: ${max}`);
+}
+
+//finds the lowest temperature of all the temperature values in the array
+function lowestTemperature(temperatures)
+{
+    //declare variables
+    let min = temperatures[0];
+
+    //repeats for every index of the temperatures array
+    for (let i = 0; i < temperatures.length; i++)
+    {
+        //checks if the temperature at the current index is less than the value stored in min
+        if (temperatures[i] < min)
+        {
+            //sets min to the temperature value at the current index of the array if true
+            min = temperatures[i];
+        }
+    }
+
+    //outputs the results to the console
+    console.log(`Min Temperature: ${min}`);
 }
